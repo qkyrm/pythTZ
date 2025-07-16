@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Жанры</title>
+</head>
+<body>
+<h1>Все жанры</h1>
+
+<ul>
+    {% for genre in genres %}
+        <li>{{ genre.title }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

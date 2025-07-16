@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<h1>Все фильмы</h1>
+<ul>
+    {% for movie in movies %}
+        <li>
+            <h2><a href="{% url 'detail' movie.id %}">{{ movie.title }}</a></h2>
+            <p>{{ movie.description }}</p>
+
+            {% if movie.trailer %}
+                <iframe width="560" height="315"
+                        src="{{ movie.trailer|replace:'watch?v=','embed/' }}"
+                        frameborder="0"
+                        allowfullscreen>
+                </iframe>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
